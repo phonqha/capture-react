@@ -42,7 +42,8 @@ p{
     line-height: 150%;
 }
 h4{
-    font-size: 2.5rem;
+    font-weight: bold;
+    font-size: 2rem;
 }
 span{
     font-weight: bold;
