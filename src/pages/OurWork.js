@@ -15,8 +15,11 @@ import {
     lineAnim,
     slider,
 } from "../animation";
+import { useScroll } from "../components/useScroll";
 
 const OurWork = () => {
+    const [element, control] = useScroll();
+    const [element2, control2] = useScroll();
     return (
         <Work
             style={{ background: "#fff" }}
@@ -43,17 +46,17 @@ const OurWork = () => {
                 </Link>
             </Movie>
 
-            <Movie>
+            <Movie variants={fade} animate={control} ref={element}>
                 <h2>The Racer</h2>
-                <div className="line"></div>
+                <motion.div variants={lineAnim} className="line"></motion.div>
                 <Link to="/work/the-racer">
                     <img src={theracer} alt="theracer" />
                 </Link>
             </Movie>
 
-            <Movie>
+            <Movie variants={fade} animate={control2} ref={element2}>
                 <h2>Good Times</h2>
-                <div className="line"></div>
+                <motion.div variants={lineAnim} className="line"></motion.div>
                 <Link to="/work/good-times">
                     <Hide>
                         <img src={goodtimes} alt="goodtimes" />
@@ -73,7 +76,7 @@ const Work = styled(motion.div)`
     }
 `;
 
-const Movie = styled.div`
+const Movie = styled(motion.div)`
     padding-bottom: 10rem;
     .line {
         height: 0.5rem;
